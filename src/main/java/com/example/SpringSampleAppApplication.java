@@ -71,14 +71,14 @@ class HomeRestController {
 			return new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
 	}
 
-	@RequestMapping("/disease")
-	public String disease(){
+	@RequestMapping("/infect")
+	public String infect(){
 		healthy=false;
 		return hostname+" is getting Sick ";
 	}
 
-	@RequestMapping("/medicate")
-	public String medicate(){
+	@RequestMapping("/cure")
+	public String cure(){
 		healthy=true;
 		return hostname+" is getting Better ";
 	}
