@@ -38,6 +38,7 @@ public class SpringSampleAppApplication {
 class HomeRestController {
 
 	boolean healthy=true;
+	boolean alive=true;
     String hostname="";
 	public  HomeRestController(){
 		try {
@@ -53,18 +54,40 @@ class HomeRestController {
          return "<h1>"+hostname+"</h1>";
 	}
 
-	@RequestMapping("/healthz")
-	public ResponseEntity healthz(){
+	@RequestMapping("/ready")
+	public ResponseEntity ready(){
 		if (healthy)
 			return new ResponseEntity(HttpStatus.ACCEPTED);
 		else
 			return new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
 	}
 
-	@RequestMapping("/cancer")
-	public String cancer(){
+
+	@RequestMapping("/live")
+	public ResponseEntity live(){
+		if (alive)
+			return new ResponseEntity(HttpStatus.ACCEPTED);
+		else
+			return new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
+	}
+
+	@RequestMapping("/suffer")
+	public String suffer(){
 		healthy=false;
-		return "Killed "+hostname;
+		return hostname+" is getting Sick ";
+	}
+
+	@RequestMapping("/medicate")
+	public String medicate(){
+		healthy=true;
+		return hostname+" is getting Better ";
+	}
+
+
+	@RequestMapping("/kill")
+	public String suffer(){
+		healthy=false;
+		return hostname+" is Dying ";
 	}
 
 	@Autowired
