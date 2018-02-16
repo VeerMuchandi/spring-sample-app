@@ -86,7 +86,7 @@ class HomeRestController {
 
 	@RequestMapping("/kill")
 	public String suffer(){
-		healthy=false;
+		alive=false;
 		return hostname+" is Dying ";
 	}
 
