@@ -71,8 +71,8 @@ class HomeRestController {
 			return new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
 	}
 
-	@RequestMapping("/suffer")
-	public String suffer(){
+	@RequestMapping("/disease")
+	public String disease(){
 		healthy=false;
 		return hostname+" is getting Sick ";
 	}
